@@ -31,12 +31,12 @@ contract GenericNFTPumpContract is Ownable, ERC721, ERC721URIStorage, PaymentSpl
     Counters.Counter private _tokenSupply;
     Counters.Counter private _freeSupply;
 
-    uint256 public constant MAX_TOKENS = 3333;
-    uint256 public publicMintMaxLimit = 100;
-    uint256 public whitelistMintMaxLimit = 100;
-    uint256 public tokenPrice = 0.05 ether;
+    uint256 public constant MAX_TOKENS = 12300;
+    uint256 public publicMintMaxLimit = 40;
+    uint256 public whitelistMintMaxLimit = 40;
+    uint256 public tokenPrice = 0.25 ether;
     uint256 public whitelistTokenPrice = 0.0 ether;
-    uint256 public maxWhitelistPassMints = 900;
+    uint256 public maxWhitelistPassMints = 2300;
 
     bool public publicMintIsOpen = false;
     bool public privateMintIsOpen = true;
