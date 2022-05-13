@@ -631,8 +631,8 @@
       ]
     },
     "/Users/jessicagreene/Documents/GitHub/African-Perspective/IGL/contracts/GenericNFTPumpContract.sol": {
-      "lastModificationDate": 1652306429134,
-      "contentHash": "8523c29d5fae1aea048c055c9733afa9",
+      "lastModificationDate": 1652367115985,
+      "contentHash": "a948c4cdfc55a3c49e205c6d0d3a72bc",
       "sourceName": "contracts/GenericNFTPumpContract.sol",
       "solcConfig": {
         "version": "0.8.11",
