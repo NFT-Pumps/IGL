@@ -15,15 +15,17 @@ module.exports = [
         ethers.utils.getAddress('0x763A1c99B8E3Bb0fAD1A229e160Ce9f10D36197E'),
         ethers.utils.getAddress('0x54bC07d7F81B207427C3879F272597Bf02255B00'),
         ethers.utils.getAddress('0x2638E15140EE7289edE2A04DE05198F013E6ACdd'),
+        ethers.utils.getAddress('0x4A4Eec7aB4010044e200A608f0F9CAE2AcfdEDE6'),
         ethers.utils.getAddress('0x8912e40d291693C7A86C418D52b46766780C6989')
     ],
     [
-        // 72.5,
+        // 71.5,
         5,
         2.5,
         2.5,
         2.5,
         5,
+        1,
         10
     ]
 ]
