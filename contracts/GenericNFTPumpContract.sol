@@ -140,6 +140,7 @@ contract GenericNFTPumpContract is Ownable, ERC721, ERC721URIStorage, PaymentSpl
             _tokenSupply.increment();
             _freeSupply.increment();
             _safeMint(msg.sender, supply + i);
+            claimedByOwner[msg.sender] += 1;
         }
     }
 
