@@ -50,6 +50,7 @@ contract GenericNFTPumpContract is Ownable, ERC721, ERC721URIStorage, PaymentSpl
     address private _ClaimsPassSigner = 0x0000000000000000000000000000000000000000;
 
     mapping(address => bool) whitelistedAddresses;
+    mapping(address => uint256) public claimedByOwner;
 
     string public Author = "techoshi.eth";
     string public ProjectTeam = "";
@@ -75,10 +76,11 @@ contract GenericNFTPumpContract is Ownable, ERC721, ERC721URIStorage, PaymentSpl
         return signer == _ClaimsPassSigner;
     }
 
-    modifier isWhitelisted(uint8 amount, WhitelistClaimPass memory whitelistClaimPass) {
+    modifier isWhitelisted(uint8 amount, uint8 maxMints, WhitelistClaimPass memory whitelistClaimPass) {
         bytes32 digest = keccak256(
             abi.encode(amount, msg.sender)
         );
+        require((claimedByOwner[msg.sender] + amount) <= maxMints, "Can't mint over the claim limit!");
 
         require(
             _isVerifiedWhitelistClaimPass(digest, whitelistClaimPass),
@@ -114,7 +116,7 @@ contract GenericNFTPumpContract is Ownable, ERC721, ERC721URIStorage, PaymentSpl
         uint8 quantity, //Whitelist,
         uint8 claimable,
         WhitelistClaimPass memory whitelistClaimPass
-    ) external payable isWhitelisted(claimable, whitelistClaimPass) {
+    ) external payable isWhitelisted(quantity, claimable, whitelistClaimPass) {
         require(
             whitelistTokenPrice * quantity <= msg.value,
             "Not enough ether sent"
@@ -139,7 +141,6 @@ contract GenericNFTPumpContract is Ownable, ERC721, ERC721URIStorage, PaymentSpl
             _freeSupply.increment();
             _safeMint(msg.sender, supply + i);
         }
-
     }
 
     function openMint(uint256 quantity) external payable {
