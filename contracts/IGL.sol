@@ -53,7 +53,7 @@ contract GenericNFTPumpContract is Ownable, ERC721, ERC721URIStorage, PaymentSpl
     mapping(address => uint256) public claimedByOwner;
 
     string public Author = "techoshi.eth";
-    string public ProjectTeam = "";
+    string public ProjectTeam = "nftpumps";
 
     struct WhitelistClaimPass {
         bytes32 r;

@@ -3,12 +3,11 @@ module.exports = [
     'INFT',
 
     '0x9C3f261e2cc4C88DfaC56A5B46cdbf767eE2f231',
-    '0xf5e3D593FC734b267b313240A0FcE8E0edEBD69a',
+    '0xc01aC67ba14F13Af4fCD5b4ba3784F39a703cda0',
     'https://tmc-suits.s3.us-west-1.amazonaws.com/assets/json/',
     'https://tmc-suits.s3.us-west-1.amazonaws.com/assets/general/reveal.json',
 
     [
-        // ethers.utils.getAddress(''),
         ethers.utils.getAddress('0xb731eCbea158A4B7a854acDeD84Eba9D03693953'),
         ethers.utils.getAddress('0xaEda2774be030379C54da1541BCa04E77B0Be9B4'),
         ethers.utils.getAddress('0xf886B127d4E381E7619d2Af1617476fef0d04F8c'),
@@ -19,13 +18,13 @@ module.exports = [
         ethers.utils.getAddress('0x8912e40d291693C7A86C418D52b46766780C6989')
     ],
     [
-        // 71.5,
+        25,
+        25,
+        10,
+        10,
+        10,
+        10,
         5,
-        2.5,
-        2.5,
-        2.5,
-        5,
-        1,
-        10
+        5
     ]
 ]
