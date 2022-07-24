@@ -1,7 +1,7 @@
 {
   "_format": "hh-sol-artifact-1",
-  "contractName": "IGLPresale",
-  "sourceName": "contracts/IGL.sol",
+  "contractName": "IGLPresalePresale",
+  "sourceName": "contracts/IGLPresale.sol",
   "abi": [
     {
       "inputs": [
@@ -1101,7 +1101,7 @@
               "type": "uint8"
             }
           ],
-          "internalType": "struct IGLPresale.WhitelistClaimPass",
+          "internalType": "struct IGLPresalePresale.WhitelistClaimPass",
           "name": "whitelistClaimPass",
           "type": "tuple"
         }

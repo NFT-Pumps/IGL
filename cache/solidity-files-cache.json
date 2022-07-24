@@ -1,10 +1,10 @@
 {
   "_format": "hh-sol-cache-2",
   "files": {
-    "/Users/jessicagreene/Desktop/Git Hub/IGL/contracts/IGL.sol": {
+    "/Users/jessicagreene/Desktop/Git Hub/IGLPresale/contracts/IGLPresale.sol": {
       "lastModificationDate": 1658586036360,
       "contentHash": "41d36c31df3cc55980b4989f2cab1a21",
-      "sourceName": "contracts/IGL.sol",
+      "sourceName": "contracts/IGLPresale.sol",
       "solcConfig": {
         "version": "0.8.11",
         "settings": {
@@ -40,10 +40,10 @@
         "^0.8.11"
       ],
       "artifacts": [
-        "IGLPresale"
+        "IGLPresalePresale"
       ]
     },
-    "/Users/jessicagreene/Desktop/Git Hub/IGL/node_modules/@openzeppelin/contracts/access/Ownable.sol": {
+    "/Users/jessicagreene/Desktop/Git Hub/IGLPresale/node_modules/@openzeppelin/contracts/access/Ownable.sol": {
       "lastModificationDate": 1658539078490,
       "contentHash": "8398972af73b4e9e5ff3b31cad86234f",
       "sourceName": "@openzeppelin/contracts/access/Ownable.sol",
@@ -80,7 +80,7 @@
         "Ownable"
       ]
     },
-    "/Users/jessicagreene/Desktop/Git Hub/IGL/node_modules/@openzeppelin/contracts/token/ERC721/ERC721.sol": {
+    "/Users/jessicagreene/Desktop/Git Hub/IGLPresale/node_modules/@openzeppelin/contracts/token/ERC721/ERC721.sol": {
       "lastModificationDate": 1658539153061,
       "contentHash": "ead7082e39cf31875ff89b22f473500d",
       "sourceName": "@openzeppelin/contracts/token/ERC721/ERC721.sol",
@@ -123,7 +123,7 @@
         "ERC721"
       ]
     },
-    "/Users/jessicagreene/Desktop/Git Hub/IGL/node_modules/@openzeppelin/contracts/utils/Counters.sol": {
+    "/Users/jessicagreene/Desktop/Git Hub/IGLPresale/node_modules/@openzeppelin/contracts/utils/Counters.sol": {
       "lastModificationDate": 1658538966434,
       "contentHash": "74654e3ae5d7f39555055dfe244dab7a",
       "sourceName": "@openzeppelin/contracts/utils/Counters.sol",
@@ -158,7 +158,7 @@
         "Counters"
       ]
     },
-    "/Users/jessicagreene/Desktop/Git Hub/IGL/node_modules/@openzeppelin/contracts/utils/cryptography/ECDSA.sol": {
+    "/Users/jessicagreene/Desktop/Git Hub/IGLPresale/node_modules/@openzeppelin/contracts/utils/cryptography/ECDSA.sol": {
       "lastModificationDate": 1658538966443,
       "contentHash": "395edffd6bb2b3ba29970d5814039654",
       "sourceName": "@openzeppelin/contracts/utils/cryptography/ECDSA.sol",
@@ -195,7 +195,7 @@
         "ECDSA"
       ]
     },
-    "/Users/jessicagreene/Desktop/Git Hub/IGL/node_modules/@openzeppelin/contracts/token/ERC721/extensions/ERC721URIStorage.sol": {
+    "/Users/jessicagreene/Desktop/Git Hub/IGLPresale/node_modules/@openzeppelin/contracts/token/ERC721/extensions/ERC721URIStorage.sol": {
       "lastModificationDate": 1658539209692,
       "contentHash": "580a443491d9d70eb064b0130fc3cd01",
       "sourceName": "@openzeppelin/contracts/token/ERC721/extensions/ERC721URIStorage.sol",
@@ -232,7 +232,7 @@
         "ERC721URIStorage"
       ]
     },
-    "/Users/jessicagreene/Desktop/Git Hub/IGL/node_modules/@openzeppelin/contracts/finance/PaymentSplitter.sol": {
+    "/Users/jessicagreene/Desktop/Git Hub/IGLPresale/node_modules/@openzeppelin/contracts/finance/PaymentSplitter.sol": {
       "lastModificationDate": 1658539047576,
       "contentHash": "6f4509765ae026e31e8e4f0fb8f1f80f",
       "sourceName": "@openzeppelin/contracts/finance/PaymentSplitter.sol",
@@ -271,7 +271,7 @@
         "PaymentSplitter"
       ]
     },
-    "/Users/jessicagreene/Desktop/Git Hub/IGL/node_modules/@openzeppelin/contracts/utils/Context.sol": {
+    "/Users/jessicagreene/Desktop/Git Hub/IGLPresale/node_modules/@openzeppelin/contracts/utils/Context.sol": {
       "lastModificationDate": 1658538966430,
       "contentHash": "5f2c5c4b6af2dd4551027144797bc8be",
       "sourceName": "@openzeppelin/contracts/utils/Context.sol",
@@ -306,7 +306,7 @@
         "Context"
       ]
     },
-    "/Users/jessicagreene/Desktop/Git Hub/IGL/node_modules/@openzeppelin/contracts/token/ERC721/IERC721.sol": {
+    "/Users/jessicagreene/Desktop/Git Hub/IGLPresale/node_modules/@openzeppelin/contracts/token/ERC721/IERC721.sol": {
       "lastModificationDate": 1658539153063,
       "contentHash": "27d219ec6f69478d065fdbfa7931da68",
       "sourceName": "@openzeppelin/contracts/token/ERC721/IERC721.sol",
@@ -343,7 +343,7 @@
         "IERC721"
       ]
     },
-    "/Users/jessicagreene/Desktop/Git Hub/IGL/node_modules/@openzeppelin/contracts/token/ERC721/IERC721Receiver.sol": {
+    "/Users/jessicagreene/Desktop/Git Hub/IGLPresale/node_modules/@openzeppelin/contracts/token/ERC721/IERC721Receiver.sol": {
       "lastModificationDate": 1658539153058,
       "contentHash": "592df588492d45fdcf46b3cb608c0fbf",
       "sourceName": "@openzeppelin/contracts/token/ERC721/IERC721Receiver.sol",
@@ -378,7 +378,7 @@
         "IERC721Receiver"
       ]
     },
-    "/Users/jessicagreene/Desktop/Git Hub/IGL/node_modules/@openzeppelin/contracts/token/ERC721/extensions/IERC721Metadata.sol": {
+    "/Users/jessicagreene/Desktop/Git Hub/IGLPresale/node_modules/@openzeppelin/contracts/token/ERC721/extensions/IERC721Metadata.sol": {
       "lastModificationDate": 1658539209698,
       "contentHash": "efbc0d15b80a74e34dbe8da0f3e879bb",
       "sourceName": "@openzeppelin/contracts/token/ERC721/extensions/IERC721Metadata.sol",
@@ -415,7 +415,7 @@
         "IERC721Metadata"
       ]
     },
-    "/Users/jessicagreene/Desktop/Git Hub/IGL/node_modules/@openzeppelin/contracts/utils/Address.sol": {
+    "/Users/jessicagreene/Desktop/Git Hub/IGLPresale/node_modules/@openzeppelin/contracts/utils/Address.sol": {
       "lastModificationDate": 1658538966423,
       "contentHash": "4cff8b2ea0d958750786b4e3ca308445",
       "sourceName": "@openzeppelin/contracts/utils/Address.sol",
@@ -450,7 +450,7 @@
         "Address"
       ]
     },
-    "/Users/jessicagreene/Desktop/Git Hub/IGL/node_modules/@openzeppelin/contracts/utils/Strings.sol": {
+    "/Users/jessicagreene/Desktop/Git Hub/IGLPresale/node_modules/@openzeppelin/contracts/utils/Strings.sol": {
       "lastModificationDate": 1658539078777,
       "contentHash": "9c54c6c065d9e590fdcdd72c451425b9",
       "sourceName": "@openzeppelin/contracts/utils/Strings.sol",
@@ -485,7 +485,7 @@
         "Strings"
       ]
     },
-    "/Users/jessicagreene/Desktop/Git Hub/IGL/node_modules/@openzeppelin/contracts/utils/introspection/ERC165.sol": {
+    "/Users/jessicagreene/Desktop/Git Hub/IGLPresale/node_modules/@openzeppelin/contracts/utils/introspection/ERC165.sol": {
       "lastModificationDate": 1658539153240,
       "contentHash": "0e7db055ce108f9da7bb6686a00287c0",
       "sourceName": "@openzeppelin/contracts/utils/introspection/ERC165.sol",
@@ -522,7 +522,7 @@
         "ERC165"
       ]
     },
-    "/Users/jessicagreene/Desktop/Git Hub/IGL/node_modules/@openzeppelin/contracts/utils/introspection/IERC165.sol": {
+    "/Users/jessicagreene/Desktop/Git Hub/IGLPresale/node_modules/@openzeppelin/contracts/utils/introspection/IERC165.sol": {
       "lastModificationDate": 1658539153243,
       "contentHash": "03e6768535ac4da0e9756f1d8a4a018a",
       "sourceName": "@openzeppelin/contracts/utils/introspection/IERC165.sol",
@@ -557,7 +557,7 @@
         "IERC165"
       ]
     },
-    "/Users/jessicagreene/Desktop/Git Hub/IGL/node_modules/@openzeppelin/contracts/token/ERC20/utils/SafeERC20.sol": {
+    "/Users/jessicagreene/Desktop/Git Hub/IGLPresale/node_modules/@openzeppelin/contracts/token/ERC20/utils/SafeERC20.sol": {
       "lastModificationDate": 1658539153120,
       "contentHash": "76814c83c32552ed2b521c816b4d801a",
       "sourceName": "@openzeppelin/contracts/token/ERC20/utils/SafeERC20.sol",
@@ -595,7 +595,7 @@
         "SafeERC20"
       ]
     },
-    "/Users/jessicagreene/Desktop/Git Hub/IGL/node_modules/@openzeppelin/contracts/token/ERC20/IERC20.sol": {
+    "/Users/jessicagreene/Desktop/Git Hub/IGLPresale/node_modules/@openzeppelin/contracts/token/ERC20/IERC20.sol": {
       "lastModificationDate": 1658539078735,
       "contentHash": "302d9755e46bc69d7058b0cbe7185e37",
       "sourceName": "@openzeppelin/contracts/token/ERC20/IERC20.sol",
