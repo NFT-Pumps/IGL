@@ -14,7 +14,7 @@ import "@openzeppelin/contracts/token/ERC721/extensions/ERC721URIStorage.sol";
 import "@openzeppelin/contracts/finance/PaymentSplitter.sol";
 
 
-contract GenericNFTPumpContract is Ownable, ERC721, ERC721URIStorage, PaymentSplitter {
+contract IGLPresale is Ownable, ERC721, ERC721URIStorage, PaymentSplitter {
     using Counters for Counters.Counter;
     using ECDSA for bytes32;
     using Strings for uint256;
@@ -31,7 +31,7 @@ contract GenericNFTPumpContract is Ownable, ERC721, ERC721URIStorage, PaymentSpl
     Counters.Counter private _tokenSupply;
     Counters.Counter private _freeSupply;
 
-    uint256 public constant MAX_TOKENS = 3500;
+    uint256 public constant MAX_TOKENS = 3000;
     uint256 public publicMintMaxLimit = 1;
     uint256 public whitelistMintMaxLimit = 1;
     uint256 public tokenPrice = 0.00 ether;
