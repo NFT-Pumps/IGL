@@ -39,7 +39,7 @@ if (true == true)
             let ethBalance = ethers.utils.formatEther(await ethers.provider.getBalance(owner.address));
             console.log("Start Balance: " + ethBalance);
 
-            const currentContract = await ethers.getContractFactory("GenericNFTPumpContract");
+            const currentContract = await ethers.getContractFactory("IGLPresalePresale");
             currentToken = await currentContract.deploy(
                 'Test Contract',
                 'Test',
@@ -115,16 +115,16 @@ if (true == true)
             it("Mints a token from Dapp", async function () {
 
                 const PurchaseArray = [
-                    { amount: 10, value: "15" },
-                    { amount: 50, value: "15" },
-                    { amount: 50, value: "15" },
-                    { amount: 50, value: "15" },
-                    { amount: 50, value: "15" },
-                    { amount: 50, value: "15" },
-                    { amount: 50, value: "15" },
-                    { amount: 50, value: "15" },
-                    { amount: 50, value: "15" },
-                    { amount: 50, value: "15" }
+                    { amount: 1, value: "1" },
+                    { amount: 1, value: "1" },
+                    { amount: 1, value: "1" },
+                    { amount: 1, value: "1" },
+                    { amount: 1, value: "1" },
+                    { amount: 1, value: "1" },
+                    { amount: 1, value: "1" },
+                    { amount: 1, value: "1" },
+                    { amount: 1, value: "1" },
+                    { amount: 1, value: "1" }
                     // { amount: 5, value: "0.35" },
                     // { amount: 10, value: "0.7" },
                     //{ amount: 100, value: "7" }
@@ -154,10 +154,10 @@ if (true == true)
             it("Mints a presale token from Dapp", async function () {
 
                 const PurchaseArray = [
-                    { amount: 1, value: "0.5" },
-                    { amount: 1, value: "0.5" },
-                    { amount: 1, value: "0.5" },
-                    { amount: 1, value: "0.5" }
+                    { amount: 1, value: "0.06" },
+                    { amount: 1, value: "0.06" },
+                    { amount: 1, value: "0.06" },
+                    { amount: 1, value: "0.06" }
                 ];
 
                 //Enable Mint Whitelist
