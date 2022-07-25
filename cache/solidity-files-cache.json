@@ -40,7 +40,7 @@
         "^0.8.11"
       ],
       "artifacts": [
-        "IGLPresalePresale"
+        "IGLPresaleNFT"
       ]
     },
     "/Users/jessicagreene/Desktop/Git Hub/IGL/node_modules/@openzeppelin/contracts/access/Ownable.sol": {

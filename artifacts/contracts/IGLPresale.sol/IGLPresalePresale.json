@@ -1,6 +1,6 @@
 {
   "_format": "hh-sol-artifact-1",
-  "contractName": "IGLPresalePresale",
+  "contractName": "IGLPresaleNFT",
   "sourceName": "contracts/IGLPresale.sol",
   "abi": [
     {
@@ -1101,7 +1101,7 @@
               "type": "uint8"
             }
           ],
-          "internalType": "struct IGLPresalePresale.WhitelistClaimPass",
+          "internalType": "struct IGLPresaleNFT.WhitelistClaimPass",
           "name": "whitelistClaimPass",
           "type": "tuple"
         }
