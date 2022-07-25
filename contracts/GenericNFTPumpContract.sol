@@ -76,11 +76,11 @@ contract GenericNFTPumpContract is Ownable, ERC721, ERC721URIStorage, PaymentSpl
         return signer == _ClaimsPassSigner;
     }
 
-    modifier isWhitelisted(uint8 amount, uint8 maxMints, WhitelistClaimPass memory whitelistClaimPass) {
+    modifier isWhitelisted(uint8 mintAmount, uint8 maxMints, WhitelistClaimPass memory whitelistClaimPass) {
         bytes32 digest = keccak256(
-            abi.encode(amount, msg.sender)
+            abi.encode(maxMints, msg.sender)
         );
-        require((claimedByOwner[msg.sender] + amount) <= maxMints, "Can't mint over the claim limit!");
+        require((claimedByOwner[msg.sender] + mintAmount) <= maxMints, "Can't mint over the claim limit!");
 
         require(
             _isVerifiedWhitelistClaimPass(digest, whitelistClaimPass),
