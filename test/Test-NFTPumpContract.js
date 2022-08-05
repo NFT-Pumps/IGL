@@ -115,16 +115,16 @@ if (true == true)
             it("Mints a token from Dapp", async function () {
 
                 const PurchaseArray = [
-                    { amount: 1, value: "1" },
-                    { amount: 1, value: "1" },
-                    { amount: 1, value: "1" },
-                    { amount: 1, value: "1" },
-                    { amount: 1, value: "1" },
-                    { amount: 1, value: "1" },
-                    { amount: 1, value: "1" },
-                    { amount: 1, value: "1" },
-                    { amount: 1, value: "1" },
                     { amount: 1, value: "1" }
+                    // { amount: 1, value: "1" },
+                    // { amount: 1, value: "1" },
+                    // { amount: 1, value: "1" },
+                    // { amount: 1, value: "1" },
+                    // { amount: 1, value: "1" },
+                    // { amount: 1, value: "1" },
+                    // { amount: 1, value: "1" },
+                    // { amount: 1, value: "1" },
+                    // { amount: 1, value: "1" }
                     // { amount: 5, value: "0.35" },
                     // { amount: 10, value: "0.7" },
                     //{ amount: 100, value: "7" }
@@ -151,36 +151,6 @@ if (true == true)
                 expect(parseInt(totalSupply)).to.lessThan(parseInt(totalSupply2));
             });
 
-            it("Mints a presale token from Dapp", async function () {
-
-                const PurchaseArray = [
-                    { amount: 1, value: "0.06" },
-                    { amount: 1, value: "0.06" },
-                    { amount: 1, value: "0.06" },
-                    { amount: 1, value: "0.06" }
-                ];
-
-                //Enable Mint Whitelist
-                await currentToken.togglePresaleMint();
-                await currentToken.togglePresaleMint();
-
-                const totalSupply = await currentToken.totalSupply();
-
-                for (let index = 0; index < PurchaseArray.length; index++) {
-                    const element = PurchaseArray[index];
-                    await currentToken.whitelistClaimMint(element.amount, 255,
-                        whitelistClaimPass[1], { value: ethers.utils.parseEther(element.value) });
-                }
-
-                // await currentToken.whitelistClaimMint(
-                //     1,
-                //     1,
-                //     whitelistClaimPass[0]
-                //     , { value: ethers.utils.parseEther("0.0") });
-                const totalSupply2 = await currentToken.totalSupply();
-                expect(parseInt(totalSupply)).to.lessThan(parseInt(totalSupply2));
-            });
-
             if (false) {
                 it("Not enough free mints remaining", async function () {
 
@@ -195,17 +165,17 @@ if (true == true)
                 let signature = await currentToken.setSignerAddress(adminWallet.address);
             });
 
-            it("Can't Mint with Claim off", async function () {
+            // it("Can't Mint with Claim off", async function () {
 
-                //Disable Mint Whitelist
-                //await currentToken.togglePresaleMint();
+            //     //Disable Mint Whitelist
+            //     //await currentToken.togglePresaleMint();
 
-                await expect(currentToken.whitelistClaimMint(1, 1,
-                    whitelistClaimPass[0]
-                    , {
-                        value: ethers.utils.parseEther("0.55")
-                    })).to.be.revertedWith("Claim Mint Closed");
-            });
+            //     await expect(currentToken.whitelistClaimMint(1, 1,
+            //         whitelistClaimPass[0]
+            //         , {
+            //             value: ethers.utils.parseEther("0.55")
+            //         })).to.be.revertedWith("Claim Mint Closed");
+            // });
 
             it("Can't Mint with Public off", async function () {
 
@@ -218,44 +188,44 @@ if (true == true)
                     })).to.be.revertedWith("Public Mint Closed");
             });
 
-            it("Stops Mint of a presale token from Dapp due to Mint quantity can't be greater than claimable", async function () {
+            // it("Stops Mint of a presale token from Dapp due to Mint quantity can't be greater than claimable", async function () {
 
-                //Enable Mint Whitelist
-                //await currentToken.togglePresaleMint();
-                await currentToken.togglePresaleMint();
+            //     //Enable Mint Whitelist
+            //     //await currentToken.togglePresaleMint();
+            //     await currentToken.togglePresaleMint();
 
-                await expect(currentToken.whitelistClaimMint(2, 1,
-                    whitelistClaimPass[0]
-                    , {
-                        value: ethers.utils.parseEther("0.55")
-                    })).to.be.revertedWith("Mint quantity can't be greater than claimable");
-            });
+            //     await expect(currentToken.whitelistClaimMint(2, 1,
+            //         whitelistClaimPass[0]
+            //         , {
+            //             value: ethers.utils.parseEther("0.55")
+            //         })).to.be.revertedWith("Mint quantity can't be greater than claimable");
+            // });
 
-            it("Stops Mint of a presale token from Dapp due to invalid Claim Amount", async function () {
+            // it("Stops Mint of a presale token from Dapp due to invalid Claim Amount", async function () {
 
-                //Enable Mint Whitelist
-                //await currentToken.togglePresaleMint();
-                // await currentToken.togglePresaleMint();
+            //     //Enable Mint Whitelist
+            //     //await currentToken.togglePresaleMint();
+            //     // await currentToken.togglePresaleMint();
 
-                await expect(currentToken.whitelistClaimMint(1, 5,
-                    whitelistClaimPass[0]
-                    , {
-                        value: ethers.utils.parseEther("0.55")
-                    })).to.be.revertedWith("Invalid Pass");
-            });
+            //     await expect(currentToken.whitelistClaimMint(1, 5,
+            //         whitelistClaimPass[0]
+            //         , {
+            //             value: ethers.utils.parseEther("0.55")
+            //         })).to.be.revertedWith("Invalid Pass");
+            // });
 
-            it("Stops Mint of a presale token from Dapp due to invalid Pass", async function () {
+            // it("Stops Mint of a presale token from Dapp due to invalid Pass", async function () {
 
-                //Enable Mint Whitelist
-                //await currentToken.togglePresaleMint();
-                // await currentToken.togglePresaleMint();
+            //     //Enable Mint Whitelist
+            //     //await currentToken.togglePresaleMint();
+            //     // await currentToken.togglePresaleMint();
 
-                await expect(currentToken.whitelistClaimMint(1, 5,
-                    whitelistClaimPass[1]
-                    , {
-                        value: ethers.utils.parseEther("0.55")
-                    })).to.be.revertedWith("Invalid Pass");
-            });
+            //     await expect(currentToken.whitelistClaimMint(1, 5,
+            //         whitelistClaimPass[1]
+            //         , {
+            //             value: ethers.utils.parseEther("0.55")
+            //         })).to.be.revertedWith("Invalid Pass");
+            // });
 
             it("Will not allow mint over threshold", async function () {
 
@@ -349,7 +319,7 @@ if (true == true)
             it('Transfer four tokens to destination account', async () => {
                 const [adminWallet, userWallet] = await ethers.getSigners();
 
-                const howManyToTransfer = 5;
+                const howManyToTransfer = 1;
                 const FirstBalance = await currentToken.balanceOf(adminWallet.address);
                 const SecondBalance = await currentToken.balanceOf(userWallet.address);
 
@@ -377,7 +347,7 @@ if (true == true)
             it("Burn Token", async function () {
 
                 //Enable Mint Whitelist
-                await currentToken.togglePresaleMint();
+                // await currentToken.togglePresaleMint();
 
                 const [adminWallet, userWallet] = await ethers.getSigners();
 
@@ -390,7 +360,7 @@ if (true == true)
             });
 
             it("Set Multiple Parameters", async function () {
-                await currentToken.setParams('70000000000000000', '50000000000000000', '20', '5', true, true);
+                await currentToken.setParams('70000000000000000', '1', true);
             });
 
             it("Gets Total Supply", async function () {
