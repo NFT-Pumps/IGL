@@ -101,7 +101,7 @@ contract IGLPresaleNFT is Ownable, ERC721, ERC721URIStorage {
     function setParams(
         uint256 newPrice,
         uint256 setOpenMintLimit,
-        bool setPublicMintState,
+        bool setPublicMintState
     ) external onlyOwner {
         tokenPrice = newPrice;
         publicMintMaxLimit = setOpenMintLimit;
