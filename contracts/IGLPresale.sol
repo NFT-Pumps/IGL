@@ -57,8 +57,7 @@ contract IGLPresaleNFT is Ownable, ERC721, ERC721URIStorage {
         address _vault,
         address _signer,
         string memory __baseTokenURI,
-        string memory _hiddenMetadataUri,
-        address[] memory _payees, uint256[] memory _shares
+        string memory _hiddenMetadataUri
     ) ERC721(contractName, contractSymbol) {
         _ContractVault = _vault;
         _ClaimsPassSigner = _signer;
