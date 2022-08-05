@@ -198,7 +198,7 @@ if (true == true)
             it("Can't Mint with Claim off", async function () {
 
                 //Disable Mint Whitelist
-                await currentToken.togglePresaleMint();
+                //await currentToken.togglePresaleMint();
 
                 await expect(currentToken.whitelistClaimMint(1, 1,
                     whitelistClaimPass[0]

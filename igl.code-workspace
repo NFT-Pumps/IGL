@@ -1,0 +1,15 @@
+{
+	"folders": [
+		{
+			"path": "."
+		}
+	],
+	"settings": {
+		"slither.solcPath": "",
+		"slither.hiddenDetectors": [
+			"abiencoderv2-array",
+			"array-by-reference",
+			"boolean-cst"
+		]
+	}
+}

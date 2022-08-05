@@ -11,10 +11,9 @@ import "@openzeppelin/contracts/token/ERC721/ERC721.sol";
 import "@openzeppelin/contracts/utils/Counters.sol";
 import "@openzeppelin/contracts/utils/cryptography/ECDSA.sol";
 import "@openzeppelin/contracts/token/ERC721/extensions/ERC721URIStorage.sol";
-import "@openzeppelin/contracts/finance/PaymentSplitter.sol";
 
 
-contract IGLPresaleNFT is Ownable, ERC721, ERC721URIStorage, PaymentSplitter {
+contract IGLPresaleNFT is Ownable, ERC721, ERC721URIStorage {
     using Counters for Counters.Counter;
     using ECDSA for bytes32;
     using Strings for uint256;
@@ -33,13 +32,9 @@ contract IGLPresaleNFT is Ownable, ERC721, ERC721URIStorage, PaymentSplitter {
 
     uint256 public constant MAX_TOKENS = 3000;
     uint256 public publicMintMaxLimit = 1;
-    uint256 public whitelistMintMaxLimit = 1;
     uint256 public tokenPrice = 0.00 ether;
-    uint256 public whitelistTokenPrice = 0.0 ether;
-    uint256 public maxWhitelistPassMints = 50;
 
     bool public publicMintIsOpen = false;
-    bool public privateMintIsOpen = true;
     bool public revealed = false;
 
     string _baseTokenURI;
@@ -50,44 +45,11 @@ contract IGLPresaleNFT is Ownable, ERC721, ERC721URIStorage, PaymentSplitter {
     address private _ClaimsPassSigner = 0x0000000000000000000000000000000000000000;
 
     mapping(address => bool) whitelistedAddresses;
+    mapping(address => bool) addressMinted;
     mapping(address => uint256) public claimedByOwner;
 
     string public Author = "techoshi.eth";
-    string public ProjectTeam = "nftpumps";
-
-    struct WhitelistClaimPass {
-        bytes32 r;
-        bytes32 s;
-        uint8 v;
-    }
-
-    function _isVerifiedWhitelistClaimPass(
-        bytes32 digest,
-        WhitelistClaimPass memory whitelistClaimPass
-    ) internal view returns (bool) {
-        address signer = ecrecover(
-            digest,
-            whitelistClaimPass.v,
-            whitelistClaimPass.r,
-            whitelistClaimPass.s
-        );
-
-        require(signer != address(0), "ECDSA: invalid signature");
-        return signer == _ClaimsPassSigner;
-    }
-
-    modifier isWhitelisted(uint8 mintAmount, uint8 maxMints, WhitelistClaimPass memory whitelistClaimPass) {
-        bytes32 digest = keccak256(
-            abi.encode(maxMints, msg.sender)
-        );
-        require((claimedByOwner[msg.sender] + mintAmount) <= maxMints, "Can't mint over the claim limit!");
-
-        require(
-            _isVerifiedWhitelistClaimPass(digest, whitelistClaimPass),
-            "Invalid Pass"
-        ); // 4
-        _;
-    }
+    string public ProjectTeam = "nftpumps";     
 
     constructor(
         string memory contractName,
@@ -97,7 +59,7 @@ contract IGLPresaleNFT is Ownable, ERC721, ERC721URIStorage, PaymentSplitter {
         string memory __baseTokenURI,
         string memory _hiddenMetadataUri,
         address[] memory _payees, uint256[] memory _shares
-    ) ERC721(contractName, contractSymbol)  PaymentSplitter(_payees, _shares) payable {
+    ) ERC721(contractName, contractSymbol) {
         _ContractVault = _vault;
         _ClaimsPassSigner = _signer;
         _tokenSupply.increment();
@@ -105,43 +67,11 @@ contract IGLPresaleNFT is Ownable, ERC721, ERC721URIStorage, PaymentSplitter {
         _safeMint(msg.sender, 1);
         _baseTokenURI = __baseTokenURI;
         hiddenMetadataUri = _hiddenMetadataUri;
-        
+         
     }
     
     function withdraw() external onlyOwner {
         payable(_ContractVault).transfer(address(this).balance);
-    }
-
-    function whitelistClaimMint(
-        uint8 quantity, //Whitelist,
-        uint8 claimable,
-        WhitelistClaimPass memory whitelistClaimPass
-    ) external payable isWhitelisted(quantity, claimable, whitelistClaimPass) {
-        require(
-            whitelistTokenPrice * quantity <= msg.value,
-            "Not enough ether sent"
-        );
-
-        uint256 supply = _tokenSupply.current();        
-
-        require(privateMintIsOpen == true, "Claim Mint Closed");
-        require(quantity + (supply-1) <= MAX_TOKENS, "Not enough tokens remaining");
-        require(quantity <= claimable, "Mint quantity can't be greater than claimable");
-        require(quantity > 0, "Mint quantity must be greater than zero");
-        require(quantity <= whitelistMintMaxLimit, "Mint quantity too large");
-        require(
-            _freeSupply.current() + quantity <= maxWhitelistPassMints,
-            "Not enough free mints remaining"
-        );
-
-        // giveAwayMints[msg.sender] += quantity;        
-
-        for (uint256 i = 0; i < quantity; i++) {
-            _tokenSupply.increment();
-            _freeSupply.increment();
-            _safeMint(msg.sender, supply + i);
-            claimedByOwner[msg.sender] += 1;
-        }
     }
 
     function openMint(uint256 quantity) external payable {
@@ -150,10 +80,12 @@ contract IGLPresaleNFT is Ownable, ERC721, ERC721URIStorage, PaymentSplitter {
         require(publicMintIsOpen == true, "Public Mint Closed");
         require(quantity <= publicMintMaxLimit, "Mint amount too large");
         require(quantity + (supply-1) <= MAX_TOKENS, "Not enough tokens remaining");
+        require(addressMinted[msg.sender] == false, "This address has already minted");
 
         for (uint256 i = 0; i < quantity; i++) {
             _tokenSupply.increment();
             _safeMint(msg.sender, supply + i);
+            addressMinted[msg.sender] == true;
         }
     }
 
@@ -168,46 +100,24 @@ contract IGLPresaleNFT is Ownable, ERC721, ERC721URIStorage, PaymentSplitter {
 
     function setParams(
         uint256 newPrice,
-        uint256 newWhitelistTokenPrice,
         uint256 setOpenMintLimit,
-        uint256 setWhistlistPassMintLimit,
         bool setPublicMintState,
-        bool setPrivateMintState
     ) external onlyOwner {
-        whitelistTokenPrice = newWhitelistTokenPrice;
         tokenPrice = newPrice;
         publicMintMaxLimit = setOpenMintLimit;
-        whitelistMintMaxLimit = setWhistlistPassMintLimit;
         publicMintIsOpen = setPublicMintState;
-        privateMintIsOpen = setPrivateMintState;
     }
 
     function setTransactionMintLimit(uint256 newMintLimit) external onlyOwner {
         publicMintMaxLimit = newMintLimit;
     }
 
-    function setWhitelistTransactionMintLimit(uint256 newprivateMintLimit)
-        external
-        onlyOwner
-    {
-        whitelistMintMaxLimit = newprivateMintLimit;
-    }
-
     function setTokenPrice(uint256 newPrice) external onlyOwner {
         tokenPrice = newPrice;
     }
 
-    function setFreeMints(uint256 amount) external onlyOwner {
-        require(amount <= MAX_TOKENS, "Free mint amount too large");
-        maxWhitelistPassMints = amount;
-    }
-
     function togglePublicMint() external onlyOwner {
         publicMintIsOpen = !publicMintIsOpen;
-    }
-
-    function togglePresaleMint() external onlyOwner {
-        privateMintIsOpen = !privateMintIsOpen;
     }
 
     function totalSupply() public view returns (uint256) {
