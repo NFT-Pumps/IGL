@@ -44,8 +44,7 @@ contract IGLPresaleNFT is Ownable, ERC721, ERC721URIStorage {
     address private _ContractVault = 0x0000000000000000000000000000000000000000;
     address private _ClaimsPassSigner = 0x0000000000000000000000000000000000000000;
 
-    mapping(address => bool) whitelistedAddresses;
-    mapping(address => bool) addressMinted;
+    mapping(address => bool) public addressMinted;
     mapping(address => uint256) public claimedByOwner;
 
     string public Author = "techoshi.eth";
