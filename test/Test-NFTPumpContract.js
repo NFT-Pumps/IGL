@@ -116,6 +116,7 @@ if (true == true)
             it("Mints a token from Dapp", async function () {
 
                 const PurchaseArray = [
+                    { amount: 1, value: "1" },
                     { amount: 1, value: "1" }
                     // { amount: 1, value: "1" },
                     // { amount: 1, value: "1" },
