@@ -6,6 +6,7 @@ pragma solidity ^0.8.11;
         <(^_^)>
  ********************/
 
+import "hardhat/console.sol";
 import "@openzeppelin/contracts/access/Ownable.sol";
 import "@openzeppelin/contracts/token/ERC721/ERC721.sol";
 import "@openzeppelin/contracts/utils/Counters.sol";
@@ -78,12 +79,12 @@ contract IGLPresaleNFT is Ownable, ERC721, ERC721URIStorage {
         require(publicMintIsOpen == true, "Public Mint Closed");
         require(quantity <= publicMintMaxLimit, "Mint amount too large");
         require(quantity + (supply-1) <= MAX_TOKENS, "Not enough tokens remaining");
-        require(addressMinted[msg.sender] == false, "This address has already minted");
+        require(!addressMinted[msg.sender], "This address has already minted");
 
         for (uint256 i = 0; i < quantity; i++) {
             _tokenSupply.increment();
-            _safeMint(msg.sender, supply + i);
-            addressMinted[msg.sender] == true;
+            addressMinted[msg.sender] = true;
+            _safeMint(msg.sender, supply + i);            
         }
     }
 

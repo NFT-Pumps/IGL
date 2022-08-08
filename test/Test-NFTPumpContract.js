@@ -116,8 +116,8 @@ if (true == true)
             it("Mints a token from Dapp", async function () {
 
                 const PurchaseArray = [
-                    { amount: 1, value: "1" },
-                    { amount: 1, value: "1" }
+                    { amount: 1, value: "0" },
+                    // { amount: 1, value: "1" }
                     // { amount: 1, value: "1" },
                     // { amount: 1, value: "1" },
                     // { amount: 1, value: "1" },
@@ -178,6 +178,11 @@ if (true == true)
             //             value: ethers.utils.parseEther("0.55")
             //         })).to.be.revertedWith("Claim Mint Closed");
             // });
+
+            it("Can't Mint more than one per wallet", async function () {
+
+                await expect( currentToken.openMint(1, { value: 0 })).to.be.revertedWith("This address has already minted");
+            });
 
             it("Can't Mint with Public off", async function () {
 
